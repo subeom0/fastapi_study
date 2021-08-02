@@ -35,6 +35,7 @@ async def asd():
     return 0
 ~~~
 이처럼 async로 선언된 함수는 await를 이용해 호출해야 코드가 돌아간다.
+await은 async def 함수에서만 사용가능하다.
 
 ~~~python
 @app.get("/")
@@ -48,3 +49,4 @@ async def asd():
 ~~~
 <coroutine object asd at 0x101eb8540>
 ~~~
+이렇게 await를 쓰지 않으면 코루틴 객체가 반환되고 실제 함수는 실행되지 않는다. *https://sjquant.tistory.com/14
