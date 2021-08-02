@@ -52,4 +52,28 @@ async def asd():
 이렇게 await를 쓰지 않으면 코루틴 객체가 반환되고 실제 함수는 실행되지 않는다. * https://sjquant.tistory.com/14 *
 
 ## path parameter
-경로에 ㅇ
+경로중 일부를 함수의 인자로 넘길 수 있다. print에서 포매팅과 유사하게 {넘겨줄 인자명}을 path에 포함시켜준다
+~~~python
+@app.get("/{a}")
+def test(a):
+  return a
+~~~
+ex) http://127.0.0.1:8000/items
+~~~
+"items"
+~~~
+
+이렇게 넘기는 인자의 자료형을 정해줄 수 있다. 
+경로상에서 123은 문자로 취급되는데, 우리는 인자로 정수르 받아야할 때가 있을 것이다.
+이때 def 함수명(인자: 자료형) 형태로 선언하며 자료형이 변한다.
+** 변환이 불가능하면 에러발생 **
+
+ex)http://127.0.0.1:8000/12
+~~~python
+@app.get("/{a}")
+def test(a: float): # 이렇게 자료형 지정가능 str, int, bool 등등 다 된다 ! 
+  return a
+~~~
+~~~
+12.0
+~~~
