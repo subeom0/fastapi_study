@@ -23,3 +23,28 @@ def 함수명(인자):
 
 
 ## async
+def로 정의된 함수는 페이지를 넘길때마다 로딩을 처리한다.
+하지만 async def로 정의된 함수는 모든 페이지를 로딩시켜둔 후 보여준다.
+그렇기에 async def는 def에 비해 속도가 빠를 때도 있다.
+~~~python
+@app.get("/")
+async def rasd():
+    return await asd()
+
+async def asd():
+    return 0
+~~~
+이처럼 async로 선언된 함수는 await를 이용해 호출해야 코드가 돌아간다.
+
+~~~python
+@app.get("/")
+async def rasd():
+    print(asd())
+    return await asd()
+
+async def asd():
+    return 0
+~~~
+~~~
+<coroutine object asd at 0x101eb8540>
+~~~
