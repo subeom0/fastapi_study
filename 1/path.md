@@ -1,9 +1,9 @@
-path는 rootlink(127.0.0.1:8000)뒤에 _ /~ _를 의미한다
+path는 rootlink(127.0.0.1:8000)뒤에 **/~** 를 의미한다
 ~~~
 127.0.0.1:8000/su/beom
 ~~~
 위 링크에서 path는 /su/beom이 된다
-이러한 path를 만드는 fastapi의 메소드는 _app.메소드명()_형태로 사용된다
+이러한 path를 만드는 fastapi의 메소드는 **app.메소드명()** 형태로 사용된다
 - post - 데이터 만들기
 - get - 데이터 읽기
 ~~~python
