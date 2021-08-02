@@ -49,4 +49,7 @@ async def asd():
 ~~~
 <coroutine object asd at 0x101eb8540>
 ~~~
-이렇게 await를 쓰지 않으면 코루틴 객체가 반환되고 실제 함수는 실행되지 않는다. *https://sjquant.tistory.com/14
+이렇게 await를 쓰지 않으면 코루틴 객체가 반환되고 실제 함수는 실행되지 않는다. * https://sjquant.tistory.com/14 *
+
+## path parameter
+경로에 ㅇ
