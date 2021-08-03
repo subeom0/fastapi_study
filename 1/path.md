@@ -97,6 +97,7 @@ error ex) http://127.0.0.1:8000/asdasdasd
 ### fastapi는 타입을 https://pydantic-docs.helpmanual.io 에 근거하고 았다. 타입 고를 때 참고
 
 ## enum상속 클래스를 자료형으로 지정
+path를 통해 받아올 수 있는 값은 상속class내에 선언된 변수(들)의 값이다.
 ~~~python
 class a(str, Enum):
     a = 234
@@ -135,9 +136,9 @@ def read_item(item: a, q: Optional[str] = None):
 ~~~
 이를 해결하기 위해 enum상속클래스를 클래스명(str, Enum)형태로 선언하여주거나, 변수값들을 모두 문자로 정의해주면 된다.
 
-path를 통해 받은 값은 클래스명(value)형태와 같은 값을 갖고 있다. 
-이는 상속클래스 내에서 해당 값을 갖는 변수명과 동일하다.(클래스명.변수명 형태) 이는 아래 코드에서 print값이 a.a, a.a로 동일하게 나옴을 통해 알 수 있다.
-하지만 print로 출력할 때와 달리 return을 해주게 되면, 변수명이 아니라 변수의 값, 즉 path에서 받아온 값(변수명.value)을 리턴한다.
+path를 통해 받은 값은 클래스명(value)형태와 같은 값을 갖고 있다. <br>
+이는 상속클래스 내에서 해당 값을 갖는 변수명과 동일하다.(클래스명.변수명 형태) 이는 아래 코드에서 print값이 a.a, a.a로 동일하게 나옴을 통해 알 수 있다. <br>
+하지만 print로 출력할 때와 달리 return을 해주게 되면 변수명이 아니라 변수의 값, 즉 path에서 받아온 값(변수명.value)을 리턴한다.
 ~~~python
 class a(str, Enum):
     a = 234
