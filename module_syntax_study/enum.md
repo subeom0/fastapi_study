@@ -1,6 +1,6 @@
 ## https://docs.python.org/3/library/enum.html#enum.Enum
 
-enum을 사용하는 이유느 코드를 클래스단위로 묶어서 관리함으로써 가독성을 높여준다.
+enum을 사용하는 이유는 코드를 클래스단위로 묶어서 관리함으로써 가독성을 높여준다.
 
 enum클래스를 상속시켜 사용
 ~~~python
