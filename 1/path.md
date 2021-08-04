@@ -157,3 +157,11 @@ def read_item(item: a, q: Optional[str] = None):
 print >> a.a a.a
 "234"
 ~~~
+path에서 파라미터로 값을 넘길 때 파일경로임을 명시할 수 있다.
+~~~python
+@app.get("/files/{file_path:path}")
+async def read_file(file_path: str):
+    return {"file_path": file_path}
+~~~
+files뒤에 /까지 파라미터에서 필요할 수 있다. 
+이떄는 //를 입력해주면 된다.
