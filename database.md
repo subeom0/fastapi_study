@@ -79,3 +79,22 @@ DB세션
 Base = declarative_base()
 ~~~
 DB모델 만들기 위한 클래스
+
+## models.py
+database.py를 통해 접근한 DB(스키마)에 테이블과 컬럼을 추가하는 클래스를 만든다.
+DB구조 : 스키마(= DB) - table - column ( in mysqldb ) 
+
+~~~python
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String # 컬럼 자료형
+from sqlalchemy.orm import relationship
+from .database import Base
+~~~
+
+~~~python
+# fastapi 문서에서는 db와 상호작용하는 인스턴스와 클래스를 model이라 칭함
+class 클래스명(Base): #database.py의 Base 상속
+    __tablename__ = "테이블명" #만들 테이블명
+    
+    컬럼명 = Column(속성) 
+
+~~~
