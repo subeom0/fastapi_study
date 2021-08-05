@@ -67,7 +67,7 @@ engine = create_engine(
     DB_URL, connect_args={"check_same_thread": False}
 )
 ~~~
-engine은 DB엔진을 만든다.
+engine은 DB엔진을 만든다. <br> 
 connect_args={"check_same_thread": False}는 SQLite사용시에만 필요하다. 다른 DB이용시 필요없다.
 
 ~~~python
@@ -81,20 +81,23 @@ Base = declarative_base()
 DB모델 만들기 위한 클래스
 
 ## models.py
-database.py를 통해 접근한 DB(스키마)에 테이블과 컬럼을 추가하는 클래스를 만든다.
+database.py를 통해 접근한 DB(스키마)에 테이블과 컬럼을 추가하는 클래스를 만든다. <br>
 DB구조 : 스키마(= DB) - table - column ( in mysqldb ) 
-
+**fastapi 문서에서는 db와 상호작용하는 인스턴스와 클래스를 model이라 칭함**
 ~~~python
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String # 컬럼 자료형
 from sqlalchemy.orm import relationship
 from .database import Base
-~~~
 
-~~~python
-# fastapi 문서에서는 db와 상호작용하는 인스턴스와 클래스를 model이라 칭함
 class 클래스명(Base): #database.py의 Base 상속
     __tablename__ = "테이블명" #만들 테이블명
     
     컬럼명 = Column(속성) 
-
+    items = relationship("Item", back_populates="owner") # 역할 추가 필요
 ~~~
+
+## schemas.py
+앞서 만든 model.py는 sqlalchemy의 model이고, 여기서 말하는 model은 pydantic의 model을 의미한다. <br>
+sqlalchemy로 컬럼의 속성을 지정할 때는 **컬럼명 = Column(type)** 형태로 선언하여 주었다. <br>
+이와 달리 pydantic의 model은 **컬럼명 : type** 형태로 선언한다.
+
