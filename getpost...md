@@ -8,6 +8,11 @@ path는 rootlink(127.0.0.1:8000)뒤에 **/~** 를 의미한다.
 이러한 path를 만드는 fastapi의 메소드는 **app.메소드명()** 형태로 사용된다
 - post - 데이터 만들기
 ~~~python
+from pydantic.main import BaseModel
+class test(BaseModel):
+    name:str
+#post를 통해 받은 값들을 저장할 변수와 타입을 basemodel으 상속받은 클래스로 정의한다.
+#json으로 넘겨줄때 변수명을 같게 해야한다. 
 #프론트에서 json형식으로 path에 정보를 보내면 받을 수 있다.
 #테스트시에 postman이라는 프로그램을 사용할 수 있다. 이때 body에서 raw를 체크하고 형식을 json으로 전송해야한다.
 @app.post(path)
